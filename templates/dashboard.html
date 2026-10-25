@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Placement Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Placement Portal
+        </div>
+
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/companies">Companies</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/applications">Applications</a>
+            <a href="/interviews">Interviews</a>
+            <a href="/placements">Placements</a>
+        </div>
+
+    </nav>
+
+
+    <main class="dashboard">
+
+        <h1>Dashboard</h1>
+
+        <p class="welcome">
+            College Placement Management System
+        </p>
+
+
+        <!-- STAT CARDS -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Total Students</h3>
+                <p>{{ total_students }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Total Companies</h3>
+                <p>{{ total_companies }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Job Opportunities</h3>
+                <p>{{ total_jobs }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Students Placed</h3>
+                <p>{{ total_placements }}</p>
+            </div>
+
+        </div>
+
+
+        <!-- APPLICATION STATUS -->
+
+        <section class="dashboard-section">
+
+            <h2>Application Status</h2>
+
+            <div class="stats-grid">
+
+                {% for item in status_data %}
+
+                <div class="stat-card">
+
+                    <h3>{{ item.status }}</h3>
+
+                    <p>{{ item.count }}</p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+        <!-- PACKAGE STATISTICS -->
+
+        <section class="dashboard-section">
+
+            <h2>Package Statistics</h2>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <h3>Average Package</h3>
+
+                    <p>
+                        ₹{{ "%.2f"|format(average_package or 0) }} LPA
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Highest Package</h3>
+
+                    <p>
+                        ₹{{ "%.2f"|format(highest_package or 0) }} LPA
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPANY-WISE APPLICATIONS -->
+
+        <section class="dashboard-section">
+
+            <h2>Company-wise Applications</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Company</th>
+                            <th>Total Applications</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for company in company_data %}
+
+                        <tr>
+
+                            <td>
+                                {{ company.company_name }}
+                            </td>
+
+                            <td>
+                                {{ company.applications }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>

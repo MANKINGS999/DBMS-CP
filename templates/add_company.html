@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Company | Placement Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Placement Portal
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/companies">Companies</a>
+            <a href="#">Jobs</a>
+            <a href="#">Applications</a>
+            <a href="#">Interviews</a>
+            <a href="#">Placements</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="form-container">
+
+        <div class="form-card">
+
+            <h1>Add Company</h1>
+
+            <p class="form-subtitle">
+                Enter company information
+            </p>
+
+
+            <form method="POST">
+
+                <label>Company Name</label>
+
+                <input
+                    type="text"
+                    name="company_name"
+                    placeholder="Enter company name"
+                    maxlength="100"
+                    required
+                >
+
+
+                <label>Industry</label>
+
+                <input
+                    type="text"
+                    name="industry"
+                    placeholder="e.g. Information Technology"
+                    maxlength="100"
+                >
+
+
+                <label>Location</label>
+
+                <input
+                    type="text"
+                    name="location"
+                    placeholder="e.g. Pune"
+                    maxlength="100"
+                >
+
+
+                <div class="form-buttons">
+
+                    <a href="/companies"
+                       class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Add Company
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

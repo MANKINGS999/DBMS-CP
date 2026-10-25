@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student | Placement Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Placement Portal
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="#">Companies</a>
+            <a href="#">Jobs</a>
+            <a href="#">Applications</a>
+            <a href="#">Interviews</a>
+            <a href="#">Placements</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="form-container">
+
+        <div class="form-card">
+
+            <h1>Add Student</h1>
+
+            <p class="form-subtitle">
+                Enter student information
+            </p>
+
+
+            <form method="POST">
+
+                <label>Name</label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter full name"
+                    required
+                >
+
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                    required
+                >
+
+
+                <label>Phone</label>
+
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+
+                <label>Branch</label>
+
+                <select name="branch" required>
+
+                    <option value="">
+                        Select branch
+                    </option>
+
+                    <option value="CSE">
+                        CSE
+                    </option>
+
+                    <option value="CSE-AI">
+                        CSE-AI
+                    </option>
+
+                    <option value="ENTC">
+                        ENTC
+                    </option>
+
+                    <option value="ECE">
+                        ECE
+                    </option>
+
+                    <option value="IT">
+                        IT
+                    </option>
+
+                    <option value="Mechanical">
+                        Mechanical
+                    </option>
+
+                </select>
+
+
+                <label>CGPA</label>
+
+                <input
+                    type="number"
+                    name="cgpa"
+                    min="0"
+                    max="10"
+                    step="0.01"
+                    placeholder="Enter CGPA"
+                    required
+                >
+                <label>Graduation Year</label>
+
+<input
+    type="number"
+    name="graduation_year"
+    min="2020"
+    max="2035"
+    placeholder="Enter graduation year"
+    required
+>
+
+                <div class="form-buttons">
+
+                    <a href="/students"
+                       class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit"
+                            class="btn">
+                        Add Student
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

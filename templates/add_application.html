@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Application | Placement Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Placement Portal
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/companies">Companies</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/applications">Applications</a>
+            <a href="#">Interviews</a>
+            <a href="#">Placements</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="form-container">
+
+        <div class="form-card">
+
+            <h1>Add Application</h1>
+
+            <p class="form-subtitle">
+                Record a student's job application
+            </p>
+
+
+            <form method="POST">
+
+                <label>Student</label>
+
+                <select name="student_id" required>
+
+                    <option value="">
+                        Select student
+                    </option>
+
+                    {% for student in students %}
+
+                    <option value="{{ student.student_id }}">
+                        {{ student.name }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <label>Job</label>
+
+                <select name="job_id" required>
+
+                    <option value="">
+                        Select job
+                    </option>
+
+                    {% for job in jobs %}
+
+                    <option value="{{ job.job_id }}">
+                        {{ job.company_name }} -
+                        {{ job.job_role }} -
+                        ₹{{ job.package }} LPA
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <label>Applied Date</label>
+
+                <input
+                    type="date"
+                    name="applied_date"
+                    required
+                >
+
+
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="Applied">
+                        Applied
+                    </option>
+
+                    <option value="Shortlisted">
+                        Shortlisted
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                    <option value="Selected">
+                        Selected
+                    </option>
+
+                </select>
+
+
+                <div class="form-buttons">
+
+                    <a
+                        href="/applications"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Add Application
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

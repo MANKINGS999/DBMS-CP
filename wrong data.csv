@@ -1,0 +1,30 @@
+application_id,name,company_name,job_role,applied_date,status
+1,"Aarav Sharma",Google,"Software Engineer",2026-08-01,Selected
+3,"Aditya Patil",Microsoft,"Software Engineer",2026-08-02,Selected
+6,"Ananya Kulkarni",Amazon,"Data Engineer",2026-08-05,Shortlisted
+8,"Arjun Deshmukh",TCS,"Graduate Engineer Trainee",2026-08-02,Shortlisted
+10,"Ishita Joshi",Google,"Software Engineer",2026-08-01,Selected
+11,"Ishita Joshi",Microsoft,"Software Engineer",2026-08-03,Shortlisted
+13,"Rohan More",Amazon,SDE-I,2026-08-03,Shortlisted
+14,"Rohan More",TCS,"Software Developer",2026-08-05,Selected
+16,"Sneha Patil",Google,"Software Engineer",2026-08-01,Selected
+17,"Sneha Patil",Amazon,"Data Engineer",2026-08-04,Shortlisted
+19,"Kunal Shah",Infosys,"Systems Engineer",2026-08-05,Shortlisted
+20,"Priya Nair",Google,"Data Analyst",2026-08-01,Selected
+21,"Priya Nair",Microsoft,"Cloud Engineer",2026-08-03,Shortlisted
+23,"Rahul Jadhav",TCS,"Graduate Engineer Trainee",2026-08-02,Shortlisted
+25,"Neha Desai",Microsoft,"Software Engineer",2026-08-02,Selected
+26,"Neha Desai",TCS,"Software Developer",2026-08-05,Shortlisted
+28,"Siddhant Pawar",Wipro,"Project Engineer",2026-08-07,Shortlisted
+29,"Meera Gupta",Google,"Software Engineer",2026-08-01,Selected
+32,"Vivek Chavan",Microsoft,"Software Engineer",2026-08-02,Shortlisted
+33,"Vivek Chavan",TCS,"Software Developer",2026-08-05,Selected
+34,"Tanvi Bhosale",Google,"Data Analyst",2026-08-01,Selected
+35,"Tanvi Bhosale",Microsoft,"Cloud Engineer",2026-08-03,Shortlisted
+37,"Akash Shinde",Accenture,"Associate Software Engineer",2026-08-06,Shortlisted
+39,"Riya Mehta",Google,"Data Analyst",2026-08-03,Shortlisted
+40,"Omkar Kulkarni",Amazon,SDE-I,2026-08-02,Shortlisted
+41,"Omkar Kulkarni",TCS,"Software Developer",2026-08-05,Selected
+42,"Sakshi Wagh",Infosys,"Systems Engineer",2026-08-03,Shortlisted
+45,"Yash Thakur",Accenture,"Associate Software Engineer",2026-08-06,Shortlisted
+46,"Manas Shinde",Google,"Software Engineer",2026-10-25,Selected

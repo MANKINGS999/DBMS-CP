@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Schedule Interview | Placement Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Placement Portal
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/companies">Companies</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/applications">Applications</a>
+            <a href="/interviews">Interviews</a>
+            <a href="#">Placements</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="form-container">
+
+        <div class="form-card">
+
+            <h1>Schedule Interview</h1>
+
+            <p class="form-subtitle">
+                Schedule an interview round for a shortlisted student
+            </p>
+
+
+            <form method="POST">
+
+                <label>Application</label>
+
+                <select name="application_id" required>
+
+                    <option value="">
+                        Select application
+                    </option>
+
+                    {% for application in applications %}
+
+                    <option value="{{ application.application_id }}">
+
+                        {{ application.student_name }}
+                        -
+                        {{ application.company_name }}
+                        -
+                        {{ application.job_role }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <label>Round Number</label>
+
+                <input
+                    type="number"
+                    name="round_no"
+                    min="1"
+                    max="10"
+                    placeholder="e.g. 1"
+                    required
+                >
+
+
+                <label>Interview Date</label>
+
+                <input
+                    type="date"
+                    name="interview_date"
+                >
+
+
+                <label>Result</label>
+
+                <select name="result">
+
+                    <option value="">
+                        Pending
+                    </option>
+
+                    <option value="Cleared">
+                        Cleared
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                    <option value="Selected">
+                        Selected
+                    </option>
+
+                </select>
+
+
+                <div class="form-buttons">
+
+                    <a
+                        href="/interviews"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Schedule Interview
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Applications | Placement Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Placement Portal
+        </div>
+
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/companies">Companies</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/applications">Applications</a>
+            <a href="/interviews">Interviews</a>
+            <a href="/placements">Placements</a>
+        </div>
+
+    </nav>
+
+
+    <main class="page-container">
+
+        <div class="page-header">
+
+            <div>
+                <h1>Applications</h1>
+
+                <p>
+                    Track student job applications
+                </p>
+            </div>
+
+            <a href="/applications/add" class="btn">
+                + Add Application
+            </a>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Company</th>
+                        <th>Job Role</th>
+                        <th>Package</th>
+                        <th>Applied Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for application in applications %}
+
+                    <tr>
+
+                        <td>
+                            {{ application.application_id }}
+                        </td>
+
+                        <td>
+                            {{ application.student_name }}
+                        </td>
+
+                        <td>
+                            {{ application.company_name }}
+                        </td>
+
+                        <td>
+                            {{ application.job_role }}
+                        </td>
+
+                        <td>
+                            ₹{{ application.package }} LPA
+                        </td>
+
+                        <td>
+                            {{ application.applied_date }}
+                        </td>
+
+                        <td>
+                            {{ application.status or "Applied" }}
+                        </td>
+
+                        <td>
+
+                            <form
+                                action="/applications/delete/{{ application.application_id }}"
+                                method="POST"
+                                onsubmit="return confirm('Delete this application?');"
+                            >
+
+                                <button
+                                    type="submit"
+                                    class="delete-btn"
+                                >
+                                    Delete
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

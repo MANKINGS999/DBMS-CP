@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Placement | Placement Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Placement Portal
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/companies">Companies</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/applications">Applications</a>
+            <a href="/interviews">Interviews</a>
+            <a href="/placements">Placements</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="form-container">
+
+        <div class="form-card">
+
+            <h1>Add Placement</h1>
+
+            <p class="form-subtitle">
+                Record a successful student placement
+            </p>
+
+
+            <form method="POST">
+
+                <label>Selected Application</label>
+
+                <select name="student_job" id="student_job" required>
+
+                    <option value="">
+                        Select student and job
+                    </option>
+
+                    {% for application in selected_applications %}
+
+                    <option
+                        value="{{ application.student_id }}|{{ application.job_id }}"
+                    >
+
+                        {{ application.student_name }}
+                        -
+                        {{ application.company_name }}
+                        -
+                        {{ application.job_role }}
+                        -
+                        ₹{{ application.package }} LPA
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <input
+                    type="hidden"
+                    name="student_id"
+                    id="student_id"
+                >
+
+                <input
+                    type="hidden"
+                    name="job_id"
+                    id="job_id"
+                >
+
+
+                <label>Offer Date</label>
+
+                <input
+                    type="date"
+                    name="offer_date"
+                    required
+                >
+
+
+                <label>Package (LPA)</label>
+
+                <input
+                    type="number"
+                    name="package"
+                    step="0.01"
+                    min="0"
+                    placeholder="e.g. 12.50"
+                    required
+                >
+
+
+                <div class="form-buttons">
+
+                    <a
+                        href="/placements"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Add Placement
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const studentJob = document.getElementById("student_job");
+
+        studentJob.addEventListener("change", function () {
+
+            const value = this.value;
+
+            if (value) {
+
+                const parts = value.split("|");
+
+                document.getElementById("student_id").value = parts[0];
+                document.getElementById("job_id").value = parts[1];
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
